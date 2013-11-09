@@ -1,0 +1,41 @@
+@ul-default-handle-size: 1em;
+@ul-default-handle-gutter: 5px;
+@ul-default-handle-collapsed: "\25BA";
+@ul-default-handle-expanded: "\25BC";
+
+ul.ultree {
+    list-style-type:none;
+    padding-left:0;
+    li {
+        cursor:pointer;
+    }
+    li.ultree-leaf {
+        cursor:default;
+    }
+    li > ul {
+        list-style-type:none;
+        padding-left:@ul-default-handle-size;
+        display:none;
+    }
+    li.in > ul {
+        display:block;
+    }
+    li:before {
+        display:inline-block;
+        width:@ul-default-handle-size;
+        height:@ul-default-handle-size;
+        
+        
+        text-align:center;
+        font-weight:bold;
+        font-size:smaller;
+        margin-right:@ul-default-handle-gutter;
+        content:@ul-default-handle-collapsed;
+    }
+    li.in:before {
+        content:@ul-default-handle-expanded;
+    }
+    li.ultree-leaf:before {
+        content:" ";
+    }
+}
