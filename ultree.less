@@ -1,41 +1,41 @@
-@ul-default-handle-size: 1em;
-@ul-default-handle-gutter: 5px;
-@ul-default-handle-collapsed: "\25BA";
-@ul-default-handle-expanded: "\25BC";
-
-ul.ultree {
+@ul-handle-size: 1em;
+ @ul-gutter: 1.2em;
+ @ul-handle-collapsed:"\25BA";
+ @ul-handle-expanded:"\25BC";
+ ul.ultree {
     list-style-type:none;
     padding-left:0;
-    li {
-        cursor:pointer;
-    }
-    li.ultree-leaf {
+    margin-left:@ul-gutter;
+    & > li, ul > li {
+        position:relative;
         cursor:default;
     }
     li > ul {
         list-style-type:none;
-        padding-left:@ul-default-handle-size;
-        display:none;
+        padding-left:0;
+        margin-left:@ul-gutter;
+        cursor:pointer;
+        height:0;
+        overflow:hidden;
+        
     }
     li.in > ul {
-        display:block;
+        height:auto;
     }
-    li:before {
+    ul:before {
+        position:absolute;
+        left:0;
+        top:0;
+        margin-left:-@ul-gutter;
         display:inline-block;
-        width:@ul-default-handle-size;
-        height:@ul-default-handle-size;
-        
-        
+        width:@ul-handle-size;
+        height:@ul-handle-size;
         text-align:center;
         font-weight:bold;
         font-size:smaller;
-        margin-right:@ul-default-handle-gutter;
-        content:@ul-default-handle-collapsed;
+        content:@ul-handle-collapsed;
     }
-    li.in:before {
-        content:@ul-default-handle-expanded;
-    }
-    li.ultree-leaf:before {
-        content:" ";
+    li.in > ul:before {
+        content:@ul-handle-expanded;
     }
 }
