@@ -1,41 +1,79 @@
+/**
+ * Parameters
+ */
+
 @ul-handle-size: 1em;
  @ul-gutter: 1.2em;
- @ul-handle-collapsed:"\25BA";
- @ul-handle-expanded:"\25BC";
- ul.ultree {
-    list-style-type:none;
-    padding-left:0;
-    margin-left:@ul-gutter;
-    & > li, ul > li {
-        position:relative;
-        cursor:default;
+ @ul-handle-collapsed: "\25BA";
+ @ul-handle-expanded: "\25BC";
+
+/**
+ * Mixins
+ */
+.list {
+    .out {
+        & > li {
+            height: 0;
+            overflow: hidden;
+        }
+    }
+    .in {
+        & > li {
+            height: auto;
+            overflow: visible;
+        }
+    }
+    .unstyled {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .handle(@size) {
+        display: inline-block;
+        width: @size;
+        height: @size;
+        text-align: center;
+        font-weight: bold;
+        font-size: smaller;
+    }
+}
+
+/** 
+ * Behaviour and layout
+ */
+ul.ultree {
+    .list;
+    .unstyled;
+    & > li,
+    ul > li {
+        position: relative;
+        padding-left: @ul-gutter;
+        cursor: default;
     }
     li > ul {
-        list-style-type:none;
-        padding-left:0;
-        margin-left:@ul-gutter;
-        cursor:pointer;
-        height:0;
-        overflow:hidden;
-        
+        .unstyled;
+        .out;
+        cursor: pointer;
     }
     li.in > ul {
-        height:auto;
+        .in;
     }
-    ul:before {
-        position:absolute;
-        left:0;
-        top:0;
-        margin-left:-@ul-gutter;
-        display:inline-block;
-        width:@ul-handle-size;
-        height:@ul-handle-size;
-        text-align:center;
-        font-weight:bold;
-        font-size:smaller;
-        content:@ul-handle-collapsed;
+    li > ul:before {
+        .handle(@ul-handle-size);
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-left: -@ul-gutter;
+    }
+}
+
+/**
+ * Style
+ */
+ul.ultree {
+    li > ul:before {
+        content: @ul-handle-collapsed;
     }
     li.in > ul:before {
-        content:@ul-handle-expanded;
+        content: @ul-handle-expanded;
     }
 }
