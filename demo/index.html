@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <link rel="stylesheet/less" type="text/css" href="../ultree.less" />
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css" />
+    <title>Demo</title>
+    <style>
+        body{            
+            font-size:14px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav  nav-stacked">
+        <li><a href="base.html">Base</a></li>
+        <li><a href="draganddrop.html">Drag and drop</a></li>
+        <li><a href="lines.html">Lines</a></li>
+        <li><a href="plusminus.html">Plus minus</a></li>
+        <li><a href="bubbles.html">Bubbles</a></li>
+    </ul>
+
+    
+    <script type="text/javascript" src="../assets/jquery.js"></script>
+    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        less = {
+            env: "development", // or "production"
+            async: false, // load imports async
+            fileAsync: false, // load imports async when in a page under
+            // a file protocol
+            poll: 1000, // when in watch mode, time in ms between polls
+            functions: {}, // user functions, keyed by name
+            dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+            relativeUrls: false, // whether to adjust url's to be relative
+            // if false, url's are already relative to the
+            // entry less file
+            rootpath: "" // a path to add on to the start of every url
+            //resource
+        };
+    </script>
+    <script type="text/javascript" src="../assets/less.js"></script>
+    <script type="text/javascript" src="../ultree.js"></script>
+</body>
+
+</html>

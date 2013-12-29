@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <link rel="stylesheet/less" type="text/css" href="../ultree.less" />
+    <link rel="stylesheet/less" type="text/css" href="../box.less" />
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css" />
+    <title>Demo</title>
+    <style>
+        body{            
+            font-size:14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <ul class="ultree plusminus">
+        <li>JE T'aime</li>
+        <li>Node 2</li>
+        <li>Node 3
+            <ul>
+                <li>Node 3.1</li>
+                <li>Node 3.2</li>
+            </ul>
+        </li>
+        <li>Node 4
+            <ul>
+                <li>
+                    <a target="_blank" href="http://gooogle.com">Node 4.1</a>
+                </li>
+                <li>Node 4.2
+                    <ul>
+                        <li>Node 4.1.1
+                            <ul>
+                                <li>Node 4.1.1.1</li>
+                                <li>Node 4.1.1.2</li>
+                            </ul>
+                        </li>
+                        <li>Node 4.2.2</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a target="_blank" href="http://gooogle.com">Node 5</a>
+            <ul>
+                <li>Node 5.1</li>
+                <li>Node 5.2</li>
+            </ul>
+        </li>
+        <li class="in">Node 6
+            <ul>
+                <li>Node 6.1</li>
+                <li>Node 6.2</li>
+            </ul>
+        </li>
+    </ul>
+    <script type="text/javascript" src="../assets/jquery.js"></script>
+    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        less = {
+            env: "development", // or "production"
+            async: false, // load imports async
+            fileAsync: false, // load imports async when in a page under
+            // a file protocol
+            poll: 1000, // when in watch mode, time in ms between polls
+            functions: {}, // user functions, keyed by name
+            dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+            relativeUrls: false, // whether to adjust url's to be relative
+            // if false, url's are already relative to the
+            // entry less file
+            rootpath: "" // a path to add on to the start of every url
+            //resource
+        };
+    </script>
+    <script type="text/javascript" src="../assets/less.js"></script>
+    <script type="text/javascript" src="../ultree.js"></script>
+</body>
+
+</html>
