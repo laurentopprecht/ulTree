@@ -1,0 +1,80 @@
+/**
+ * Parameters
+ */
+
+
+/**
+ * Mixins
+ */
+
+.box.ultree,
+.box {
+    @radius: 2px;
+    @border-color:#DDD; 
+    
+    border-radius: @radius;
+    border-style: solid;
+    border-width: 1px;
+    border-color:@border-color;
+    padding:5px;
+    padding-top:2em;
+    padding-bottom:2em;
+    position:relative;
+    
+    .corner{
+        position:absolute;
+        display:inline-block;
+        border-width:inherit;
+        border-color:inherit;
+        padding-top:2px;
+        padding-bottom:2px;
+        padding-right:5px;
+        padding-left:5px;
+        
+        input{
+            border-top:none;
+            border-right:none;
+            border-left:none;
+        }
+    }
+    
+    .top-right{
+        .corner;
+        top:0;
+        right:0;
+        
+        border-left-style:solid;
+        border-bottom-style:solid;
+        border-bottom-left-radius:inherit;
+    }
+    
+    .top-left{
+        .corner;
+        top:0;
+        left:0;
+        
+        border-right-style:solid;
+        border-bottom-style:solid;
+        border-bottom-right-radius:inherit;
+    }
+    
+    .bottom-left{
+        .corner;
+        bottom:0;
+        left:0;
+        
+        border-right-style:solid;
+        border-top-style:solid;
+        border-top-right-radius:inherit;
+    }
+    
+    .bottom-right{
+        .corner;
+        bottom:0;
+        right:0;
+        
+        border-left-style:solid;
+        border-top-style:solid;
+        border-top-left-radius:inherit;
+    }
+}
