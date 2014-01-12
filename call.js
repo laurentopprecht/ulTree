@@ -8,28 +8,6 @@
     var DATA_CALL = 'data-call';
     var DATA_TARGET = 'data-target';
 
-    /**
-     * Transform a hypen separated name to camel format.
-     *
-     * expand-all -> expandAll
-     */
-    var toCamelCase = function (name) {
-        var result = '';
-        var words = name.split('-');
-        var ucfirst = function (name) {
-            return name.substr(0, 1).toUpperCase() + name.substr(1);
-        };
-        var i;
-        for (i = 0; i < words.length; i += 1) {
-            var word = words[i];
-            if (i > 0) {
-                word = ucfirst(word);
-            }
-            result += word;
-        }
-        return result;
-    };
-
     var squareQuote = function (name) {
         return '[' + name + ']';
     };

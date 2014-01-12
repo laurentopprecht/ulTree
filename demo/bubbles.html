@@ -37,13 +37,13 @@
             <a href=".ultree" data-call="ultree.collapseAll" title="Collapse all"><i class="fa fa-angle-up"></i></a>
         </div>
         
-    <ul class="ultree">
+    <ul class="ultree bubbles">
         <li>
-            <i class="glyphicon  glyphicon-folder-open"></i> <span class="inline-edit">JE T'AIME</span></li>
+            <i class="glyphicon  glyphicon-folder-open"></i> Node 1</li>
         <li>
             <i class="glyphicon  glyphicon-trash"></i> Node 2</li>
-        <li class="handle">
-            <i class="handle glyphicon  glyphicon-user"></i> Node 3
+        <li>
+            <div class="node"><i class="handle glyphicon  glyphicon-user"></i> Node 3</div>
             <ul>
                 <li>
                     <i class="glyphicon  glyphicon-question-sign"></i> Node 3.1</li>
@@ -52,15 +52,15 @@
             </ul>
         </li>
         <li>
-            <i class="glyphicon  glyphicon-print"></i> Node 4
+             <div class="node"><i class="glyphicon  glyphicon-print"></i> Node 4</div>
             <ul>
                 <li>
                     <i class="glyphicon  glyphicon-folder-open"></i>
                     <a target="_blank" href="http://gooogle.com"> Node 4.1</a>
                 </li>
-                <li>Node 4.2
+                 <li><div class="node">Node 4.2</div>
                     <ul>
-                        <li>Node 4.1.1
+                        <li><div class="node">Node 4.1.1</div>
                             <ul>
                                 <li>Node 4.1.1.1</li>
                                 <li>Node 4.1.1.2</li>
@@ -72,15 +72,15 @@
             </ul>
         </li>
         <li>
-            <i class="glyphicon  glyphicon-file"></i>
-            <a target="_blank" href="http://gooogle.com">Node 5</a>
+             <div class="node"><i class="glyphicon  glyphicon-file"></i>
+            <a target="_blank" href="http://gooogle.com">Node 5</a></div>
             <ul>
                 <li>Node 5.1</li>
                 <li>Node 5.2</li>
             </ul>
         </li>
         <li class="in">
-            <i class="glyphicon  glyphicon-info-sign"></i> Node 6
+            <div class="node"><i class="glyphicon  glyphicon-info-sign"></i> Node 6</div>
             <ul>
                 <li>
                     <label>
@@ -102,7 +102,7 @@
                         <input type="checkbox"> Node 6.4</input>
                     </label>
                 </li>
-                <li>Node 6.2
+                <li><div class="node">Node 6.2</div>
                     <ul>
                         <li>
                             <label>
@@ -124,14 +124,12 @@
                                 <input name="choose" type="radio"> Node 6.2.4</input>
                             </label>
                         </li>
-                        <li>Node 6.2</li>
+                        <li class="node">Node 6.2</li>
                     </ul>
                 </li>
             </ul>
         </li>
-    </ul>
-</div>
-<div class="log"></div>
+    </ul></div>
 
 
     <script type="text/javascript" src="../assets/jquery.js"></script>
@@ -157,14 +155,9 @@
     <script type="text/javascript" src="../ultree.js"></script>
     <script type="text/javascript" src="../call.js"></script>
     <script type="text/javascript" src="../utils.js"></script>
-    <script type="text/javascript" src="../edit.js"></script>
     <script type="text/javascript" >
         $('.filter').keyup(function(e){
             $('.ultree').ultree('filter', this.value);
-        });
-        $(document).on('changed.inline.uli', function(e, data){
-            $('.log').append('old ' + data.old + ' new ' + data.new).append('<br/>');
-            
         });
     </script>
 </body>

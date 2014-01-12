@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <link rel="stylesheet/less" type="text/css" href="../ultree.less" />
+    <link rel="stylesheet/less" type="text/css" href="../layout.less" />
+    <link rel="stylesheet/less" type="text/css" href="../box.less" />
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/jquery-ui/css/ui-lightness/jquery-ui.css">
+    <title>Demo</title>
+    <style>
+        body{            
+            font-size:14px;
+        }
+        input.filter{
+            width:70px;
+            transition-property: width;
+            transition-duration:0.3s;
+        }
+        input.filter:focus{
+            width:150px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="box">
+        <div class="top-right">
+            <input class="filter" type="text" placeholder="search" />
+            <a href=".ultree" data-call="ultree.expandAll" title="Expand all">
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <a href=".ultree" data-call="ultree.collapseAll" title="Collapse all">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+
+        <ul class="ultree" data-drag-handle=".drag-handle">
+            <li>
+                <i class="glyphicon  glyphicon-folder-open"></i>JE T'AIME <i class="glyphicon glyphicon-move drag-handle"></i></li>
+            <li> 
+                <i class="glyphicon  glyphicon-trash"></i>Node 2</li>
+            <li class="handle">
+                <i class="handle glyphicon  glyphicon-user"></i>Node 3
+                <ul>
+                    <li>
+                        <i class="glyphicon glyphicon-question-sign"></i>Node 3.1</li>
+                    <li>
+                        <i class="glyphicon glyphicon-folder-open"></i>Node 3.2</li>
+                </ul>
+            </li>
+            <li>
+                <i class="glyphicon  glyphicon-print"></i>Node 4
+                <ul>
+                    <li>
+                        <i class="glyphicon  glyphicon-folder-open"></i>
+                        <a target="_blank" href="http://gooogle.com">Node 4.1</a>
+                    </li>
+                    <li>Node 4.2
+                        <ul>
+                            <li>Node 4.1.1
+                                <ul>
+                                    <li>Node 4.1.1.1</li>
+                                    <li>Node 4.1.1.2</li>
+                                </ul>
+                            </li>
+                            <li>Node 4.2.2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <i class="glyphicon  glyphicon-file"></i>
+                <a target="_blank" href="http://gooogle.com">Node 5</a>
+                <ul>
+                    <li>Node 5.1</li>
+                    <li>Node 5.2</li>
+                </ul>
+            </li>
+            <li class="in">
+                <i class="glyphicon  glyphicon-info-sign"></i>Node 6
+                <ul>
+                    <li>
+                        <label>
+                            <input type="checkbox">Node 6.1</input>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">Node 6.2</input>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">Node 6.3</input>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">Node 6.4</input>
+                        </label>
+                    </li>
+                    <li>Node 6.2
+                        <ul>
+                            <li>
+                                <label>
+                                    <input name="choose" type="radio">Node 6.2.1</input>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input name="choose" type="radio">Node 6.2.2</input>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input name="choose" type="radio">Node 6.2.3</input>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input name="choose" type="radio">Node 6.2.4</input>
+                                </label>
+                            </li>
+                            <li>Node 6.2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript" src="../assets/jquery.js"></script>
+    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        less = {
+            env: "development", // or "production"
+            async: false, // load imports async
+            fileAsync: false, // load imports async when in a page under
+            // a file protocol
+            poll: 1000, // when in watch mode, time in ms between polls
+            functions: {}, // user functions, keyed by name
+            dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+            relativeUrls: false, // whether to adjust url's to be relative
+            // if false, url's are already relative to the
+            // entry less file
+            rootpath: "" // a path to add on to the start of every url
+            //resource
+        };
+    </script>
+    <script type="text/javascript" src="../assets/less.js"></script>
+    <script type="text/javascript" src="../ultree.js"></script>
+    <script type="text/javascript" src="../call.js"></script>
+    <script type="text/javascript" src="../utils.js"></script>
+    <script type="text/javascript" src="../draganddrop.js"></script>
+    <!--<script type="text/javascript" >
+        $('.filter').keyup(function(e){
+            $('.ultree').ultree('filter', this.value);
+        });
+        
+        var helper = function(){
+            return $('<div>hello</div>');
+        }
+        
+        $('.ultree li').draggable({
+            revert: 'invalid',
+            snap:true,
+            axis: 'y',
+            appendTo: 'ul',
+            containment: '.ultree',
+            opacity: 0.35,
+            helper: helper
+        });
+        $('.ultree ul').droppable({accept:'.ultree li', greedy:false});
+        
+    </script>-->
+</body>
+
+</html>

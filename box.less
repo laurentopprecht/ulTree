@@ -2,6 +2,7 @@
  * Parameters
  */
 
+@import "layout.less";
 
 /**
  * Mixins
@@ -9,21 +10,19 @@
 
 .box.ultree,
 .box {
+    .box-layout;
     @radius: 2px;
     @border-color:#DDD; 
     
-    border-radius: @radius;
     border-style: solid;
     border-width: 1px;
+    border-radius: @radius;
     border-color:@border-color;
     padding:5px;
     padding-top:2em;
     padding-bottom:2em;
-    position:relative;
     
     .corner{
-        position:absolute;
-        display:inline-block;
         border-width:inherit;
         border-color:inherit;
         padding-top:2px;
@@ -40,41 +39,33 @@
     
     .top-right{
         .corner;
-        top:0;
-        right:0;
         
-        border-left-style:solid;
-        border-bottom-style:solid;
+        border-left-style:inherit;
+        border-bottom-style:inherit;
         border-bottom-left-radius:inherit;
     }
     
     .top-left{
         .corner;
-        top:0;
-        left:0;
         
-        border-right-style:solid;
-        border-bottom-style:solid;
+        border-right-style:inherit;
+        border-bottom-style:inherit;
         border-bottom-right-radius:inherit;
     }
     
     .bottom-left{
         .corner;
-        bottom:0;
-        left:0;
         
-        border-right-style:solid;
-        border-top-style:solid;
+        border-right-style:inherit;
+        border-top-style:inherit;
         border-top-right-radius:inherit;
     }
     
     .bottom-right{
         .corner;
-        bottom:0;
-        right:0;
         
-        border-left-style:solid;
-        border-top-style:solid;
+        border-left-style:inherit;
+        border-top-style:inherit;
         border-top-left-radius:inherit;
     }
 }

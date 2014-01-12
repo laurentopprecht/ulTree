@@ -102,13 +102,17 @@
         var value = format(this.$editor.val());
         value = accept(value) ? value : this.old;
 
+
         this.$element.text(value);
         this.$editor.remove();
         this.$editor = null;
 
+        if (value === this.old) {
+            return;
+        }
         var data = {
             old: this.old,
-            value: value
+            new: value
         };
         this.$element.trigger(EVENT_CHANGED, [data]);
 

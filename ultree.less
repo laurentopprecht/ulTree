@@ -257,3 +257,30 @@ input.inline-editor {
     margin-left: 2px;
     margin-right: 2px;
 }
+
+/**
+ * Drag and drop
+ */
+
+.ultree{
+    .dragging{
+        border-color:red;
+        border-style:solid;
+        border-width:1px;
+        margin:-1px;
+    }
+    .over{
+        background-color: yellow;
+    }
+    .helper {
+        position:absolute;
+        width:100%;
+        z-index:1000;
+        border-top-width:2px;
+        border-top-style:solid;
+        border-color:red;
+    }
+    .drag-handle{
+        cursor:pointer;
+    }
+}

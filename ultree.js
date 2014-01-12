@@ -5,22 +5,30 @@
 
     var NAMESPACE = 'uli';
     var NAME = NAMESPACE + '.ultree';
-    var TREE_CLASS = 'ultree';
-    var LEAF_CLASS = 'leaf';
-    var HANDLE_CLASS = 'handle';
+    var CLICK_EVENT = 'click.' + NAME;
+    var CLASS_TREE = 'ultree';
+    var CLASS_LEAF = 'leaf';
+    var CLASS_TOGGLE_HANDLE = 'handle';
     var DELAY_ATTR = 'data-delay';
     //var DELAY_DEFAULT = 400;
+
 
     var Ultree = function (element, options) {
         var $element = $(element);
         this.$element = $element;
-        this.$options = options;
-        
-        $element.find('li:not(:has(ul))').addClass(LEAF_CLASS);
-        
+        this.options = $.extend({}, this.DEFAULTS, this.$element.data(), options);
+
+        $element.find('li:not(:has(ul))').addClass(CLASS_LEAF);
+
         //var delay = $tree.attr(DELAY_ATTR);
         //delay = (delay) ? parseInt(delay) : DELAY_DEFAULT;
 
+    };
+
+    Ultree.prototype.DEFAULTS = {};
+
+    Ultree.prototype.init = function (options) {
+        this.options = $.extend({}, this.DEFAULTS, this.options, options);
     };
 
     Ultree.prototype.expandAll = function () {
@@ -31,29 +39,29 @@
         this.$element.find('li').removeClass('in');
     };
 
-    Ultree.prototype.open = function (target) {
+    Ultree.prototype.expand = function (target) {
         if (!target) {
             return;
         }
         $(target).addClass('in');
     };
-    
-    Ultree.prototype.close = function (target) {
+
+    Ultree.prototype.collapse = function (target) {
         if (!target) {
             return;
         }
         $(target).removeClass('in');
     };
-    
+
     Ultree.prototype.filter = function (text) {
         var $tree = this.$element;
         if (!text) {
             $tree.find('li').show();
             return;
         }
-        
+
         $tree.find('li').hide();
-        
+
         var query = ' li:containsIgnoreCase("' + text + '")';
         $tree.find(query).show();
     };
@@ -68,11 +76,11 @@
             return;
         }
 
-        if ($target.hasClass(LEAF_CLASS)) {
+        if ($target.hasClass(CLASS_LEAF)) {
             return;
         }
 
-        if (!$target.is('ul') && !$target.hasClass(HANDLE_CLASS)) {
+        if (!$target.is('ul') && !$target.hasClass(CLASS_TOGGLE_HANDLE)) {
             return;
         }
         $target = $target.closest('li');
@@ -100,7 +108,7 @@
         });
     };
 
-    $(document).on('click.' + NAME, '.ultree', function (e) {
+    $(document).on(CLICK_EVENT, '.ultree', function (e) {
         $(this).ultree('toggle', e.target);
     });
 
